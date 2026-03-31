@@ -1,6 +1,8 @@
 package springsearch;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +29,16 @@ public class SearchController
 	public String getUserDetails(@PathVariable("userId") int userId)
 	{
 		System.out.println("The userId is : "+userId);
+		String name=null;
+		System.out.println(name.length());
 		return "home";
+	}
+	
+	@ExceptionHandler(value=Exception.class)
+	public String exceptionHandler(Model m)
+	{
+		m.addAttribute("message","Exception has occured");
+		return "errorPage";
 	}
 
 }
