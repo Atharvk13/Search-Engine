@@ -33,12 +33,5 @@ public class SearchController
 		System.out.println(name.length());
 		return "home";
 	}
-	
-	@ExceptionHandler(value=Exception.class)
-	public String exceptionHandler(Model m)
-	{
-		m.addAttribute("message","Exception has occured");
-		return "errorPage";
-	}
 
 }
